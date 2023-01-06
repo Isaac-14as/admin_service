@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  {% load static %} 
+  <link rel="stylesheet" href="{% static 'main_part/css/login.css' %}"> 
+  <link rel="stylesheet" href="{% static 'main_part/css/edit_user.css' %}">  
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class='box_form'>
+    <div class="header_text">
+      <h1>Редактирование пользователя</h1>
+      {% if user_edit == user %}
+       <h3>(Ваш профиль)</h3>
+      {% endif %}
+    </div>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="change_password">
+        <a href="{% url 'edit_user_password' user_id %}">Изменить пароль</a>
+      </div>
+      <div class="btn_box">
+        <button type="submit" class="btn btn-dark w-50">Сохранить</button>
+      </div>
+    </form>
+
+  </div>
+
+{% endblock %}

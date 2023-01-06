@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  {% load static %} 
+  <link rel="stylesheet" href="{% static 'main_part/css/all_users.css' %}"> 
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="main_box">
+  <div class="column_name">
+
+  </div>
+  {% for user_item in users %}
+    {% if user_item.username != 'admin' %}
+      <div class="user_box">
+        <div class="text_box">
+          <div class="user_login">{{ user_item.username }}</div>
+          <div class="user_first_name">{{ user_item.first_name }}</div>
+          <div class="user_role">{{ user_item.role }}</div>
+        </div>
+        <div class="actions">
+          <a class="redact btn btn-primary" type="button" href="{% url 'edit_user' user_item.id %}" >Изменить</a>
+          <a class="delete btn btn-danger" type="button" href="{% url 'delete_user' user_item.id %}">Удалить</a>
+        </div>
+        
+      </div>
+    {% endif %}
+
+  {% endfor %}
+</div>
+
+
+{% endblock %}

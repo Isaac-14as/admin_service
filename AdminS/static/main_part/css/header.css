@@ -1,0 +1,26 @@
+.exit {
+    display: flex;
+}
+.user_text{
+    color: azure;
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.exitU {
+    color: azure;
+    font-size: 20px;
+    border-left: 2px solid rgb(255, 255, 255);
+    padding-left: 10px;
+}
+
+.exitU a {
+    color: azure;
+}
+
+
+@media (max-width: 500px) {
+    .user_text {
+        display: none;
+    }
+}

@@ -1,0 +1,49 @@
+.main_box {
+    width: 70%;
+    margin: 0 auto;
+
+}
+.user_box {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    background-color: rgba(149, 152, 156, 0.65);
+
+}
+.user_login {
+    width: 200px;
+}
+.user_first_name {
+    width: 200px;
+}
+
+.user_role {
+    width: 200px;
+}
+
+.text_box {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+@media (max-width: 500px) {
+    .user_box {
+        flex-direction: column;
+    }
+    .main_box {
+        width: 95%;
+    }
+    .text_box {
+        width: 98%;
+        margin-bottom: 10px;
+    }
+    .user_login {
+        width: 120px;
+    }
+}
