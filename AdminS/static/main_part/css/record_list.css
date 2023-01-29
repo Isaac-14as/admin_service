@@ -1,0 +1,20 @@
+.actions {
+    display: flex;
+}
+.table {
+    min-width: 3200px;
+}
+
+.table_box {
+    min-width: 1920px;
+    overflow: auto;
+}
+
+td {
+    max-width: 220px;
+    word-break: break-all;
+}
+
+.actions_row {
+    min-width: 310px;
+}

@@ -1,0 +1,12 @@
+.list-group {
+    background-color: aqua;
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+.header_text {
+    width: 100%;
+    text-align: center;
+    margin-top: 2vh;
+}

@@ -1,15 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'create_entry' %}">Новая запись</a>
+  <a class="navbar-brand" href="{% url 'record_list' %}">Записи</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Настройки</a>
+        <a class="nav-link" href="{% url 'create_entry' %}">Новая запись</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Фильтры</a>
+        <a class="nav-link" href="{% url 'settings' %}">Настройки</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'search' %}">Фильтры</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Статистика</a>
@@ -18,7 +21,7 @@
         <a class="nav-link" href="#">Печать</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Утилиты</a>
+        <a class="nav-link" href="{% url 'utilities_list' %}">Утилиты</a>
       </li>
       {% if user.role == 'Администратор' %}
         <li class="nav-item">

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  {% load static %} 
+  <link rel="stylesheet" href="{% static 'main_part/css/record_list.css' %}"> 
+{% endblock %}
+
+
+{% block content %}
+<div class="table_box">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        {% if request.COOKIES.year == 'True' %}<th scope="col">Год</th>{% endif %}
+        {% if request.COOKIES.cemetery_name == 'True' %}<th scope="col">Наименование кладбища</th>{% endif %}
+        {% if request.COOKIES.number == 'True' %}<th scope="col">Номер</th>{% endif %}
+        {% if request.COOKIES.surname == 'True' %}<th scope="col">Фамилия</th>{% endif %}
+        {% if request.COOKIES.name == 'True' %}<th scope="col">Имя</th>{% endif %}
+        {% if request.COOKIES.middle_name == 'True' %}<th scope="col">Отчество</th>{% endif %}
+        {% if request.COOKIES.age_deceased == 'True' %}<th scope="col">Возраст умершего</th>{% endif %}
+        {% if request.COOKIES.date_of_birth == 'True' %}<th scope="col">Дата рождения</th>{% endif %}
+        {% if request.COOKIES.date_of_death == 'True' %}<th scope="col">Дата смерти</th>{% endif %}
+        {% if request.COOKIES.burial_date == 'True' %}<th scope="col">Дата захоронения</th>{% endif %}
+        {% if request.COOKIES.area == 'True' %}<th scope="col">Участок</th>{% endif %}
+        {% if request.COOKIES.grave == 'True' %}<th scope="col">Могила</th>{% endif %}
+        {% if request.COOKIES.evidence == 'True' %}<th scope="col">№ свидетельства о смерти из ЗАГСа</th>{% endif %}
+        {% if request.COOKIES.registry_office == 'True' %}<th scope="col">Каким ЗАГСом выдано свидетельство</th>{% endif %}
+        {% if request.COOKIES.responsible_for_burial == 'True' %}<th scope="col">Ф.И.О. ответственного за захоронение и его адре</th>{% endif %}
+        {% if request.COOKIES.note == 'True' %}<th scope="col">Примечание</th>{% endif %}
+        <th scope="col">Создатель записи</th>
+        <th scope="col">Дата создания записи</th>
+        <th scope="col">Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record_item in record %}
+        <tr>
+          {% comment %} <th scope="row">{{ record_item.year }}</th> {% endcomment %}
+          {% if request.COOKIES.year == 'True' %}<td>{{ record_item.year }}</td>{% endif %}
+          {% if request.COOKIES.cemetery_name == 'True' %}<td>{{ record_item.cemetery_name }}</td>{% endif %}
+          {% if request.COOKIES.number == 'True' %}<td>{{ record_item.number }}</td>{% endif %}
+          {% if request.COOKIES.surname == 'True' %}<td>{{ record_item.surname }}</td>{% endif %}
+          {% if request.COOKIES.name == 'True' %}<td>{{ record_item.name }}</td>{% endif %}
+          {% if request.COOKIES.middle_name == 'True' %}<td>{{ record_item.middle_name }}</td>{% endif %}
+          {% if request.COOKIES.age_deceased == 'True' %}<td>{{ record_item.age_deceased }}</td>{% endif %}
+          {% if request.COOKIES.date_of_birth == 'True' %}<td>{{ record_item.date_of_birth }}</td>{% endif %}
+          {% if request.COOKIES.date_of_death == 'True' %}<td>{{ record_item.date_of_death }}</td>{% endif %}
+          {% if request.COOKIES.burial_date == 'True' %}<td>{{ record_item.burial_date }}</td>{% endif %}
+          {% if request.COOKIES.area == 'True' %}<td>{{ record_item.area }}</td>{% endif %}
+          {% if request.COOKIES.grave == 'True' %}<td>{{ record_item.grave }}</td>{% endif %}
+          {% if request.COOKIES.evidence == 'True' %}<td>{{ record_item.evidence }}</td>{% endif %}
+          {% if request.COOKIES.registry_office == 'True' %}<td>{{ record_item.registry_office }}</td>{% endif %}
+          {% if request.COOKIES.responsible_for_burial == 'True' %}<td>{{ record_item.responsible_for_burial }}</td>{% endif %}
+          {% if request.COOKIES.note == 'True' %}<td>{{ record_item.note }}</td>{% endif %}
+          <td>{{ record_item.user_create }}</td>
+          <td>{{ record_item.data_create }}</td>
+          <td class="actions_row">
+            <div class="actions">
+              <a class="redact btn btn-success" type="button" href="">Карточка</a>
+              <a class="redact btn btn-primary" type="button" href="{% url 'record_edit' record_item.id %}">Изменить</a>
+              <a class="delete btn btn-danger" type="button" href="{% url 'record_del' record_item.id %}">Удалить</a>
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}

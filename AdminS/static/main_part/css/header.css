@@ -18,9 +18,16 @@
     color: azure;
 }
 
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
 
 @media (max-width: 500px) {
     .user_text {
         display: none;
     }
 }
+

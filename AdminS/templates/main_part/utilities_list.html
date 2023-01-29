@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  {% load static %} 
+  <link rel="stylesheet" href="{% static 'main_part/css/utilities_list.css' %}"> 
+{% endblock %}
+
+
+{% block content %}
+  <div class="header_text">
+    <h2>Утилиты</h2>
+  </div>
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">Статистика пользователей</a>
+    <a href="#" class="list-group-item list-group-item-action">Поиск (количество записей)</a>
+    <a href="{% url 'basket' %}" class="list-group-item list-group-item-action">Корзина</a>
+  </div>
+
+
+{% endblock %}

@@ -12,5 +12,19 @@ urlpatterns = [
     path('edit_user/<int:user_id>/', edit_user, name='edit_user'),
     path('edit_user_password/<int:user_id>/', edit_user_password, name='edit_user_password'),
     path('create_entry/', create_entry, name='create_entry'),
+    path('record_list/', record_list, name='record_list'),
+    path('utilities_list/', utilities_list, name='utilities_list'),
 
-]
+    # для карты 
+    # path('utilities_list/', utilities_list, name='utilities_list'),
+    path('record_del/<int:record_id>/', record_del, name='record_del'),
+    path('record_edit/<int:record_id>/', record_edit, name='record_edit'),
+
+    path('search/', search, name='search'),
+    path('search_result/', search_result, name='search_result'),
+    path('basket/', basket, name='basket'),
+    path('record_edit_basket/<int:record_id>/', record_edit_basket, name='record_edit_basket'),
+    path('record_del_basket/<int:record_id>/', record_del_basket, name='record_del_basket'),
+
+    path('settings/', settings, name='settings'),
+]   
